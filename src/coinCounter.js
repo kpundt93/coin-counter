@@ -6,13 +6,15 @@ export function coinCounter(amount) {
     return "";
   }
   if (amount >= 0.25) {
-    return (Math.floor(amount / 0.25) + " quarters");
+    return (Math.floor(amount / 0.25) + " quarters ").concat(coinCounter((amount % .25).toFixed(2)));
   }
-  // if (amount === 0.1) {
-  //   return "1 dime";
-  // }
-  // if (amount === 0.05) {
-  //   return "1 nickle";
-  // }
-  return Math.round((amount * 100)) + " pennies";
+  if (amount >= 0.10) {
+    return (Math.floor(amount / 0.10) + " dimes ").concat(coinCounter(amount % .10));
+  }
+  if (amount >= 0.05) {
+    return (Math.floor(amount / 0.05) + " nickels ").concat(coinCounter(amount % .05));
+  }
+  if (amount >= 0.01) {
+    return (Math.floor(amount / 0.01) + " pennies");
+  }
 }
