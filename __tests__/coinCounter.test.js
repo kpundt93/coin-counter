@@ -10,7 +10,7 @@ describe('coinCounter', () => {
   });
 
   test('it should return amount of dimes required', () => {
-    expect(coinCounter(0.40)).toEqual("1 quarters 1 dimes 1 nickels");
+    expect(coinCounter(0.40)).toEqual("1 quarters 1 dimes 1 nickels 0 pennies");
   });
 
   test('it should return amount of nickels required', () => {
