@@ -35,3 +35,34 @@ export const quarters = coinClosure(25);
 export const dimes = coinClosure(10);
 export const nickels = coinClosure(5);
 export const pennies = coinClosure(1);
+
+
+// whiteboard practice, lesson 21
+
+function addPrefix(prefix) {
+  return function (name) {
+    return `${prefix} ${name};`
+  }
+}
+
+const prefixSir = addPrefix("Sir");
+
+function soundMaker(noise) {
+  return function (animal) {
+    return `${animal} sound like this - ${noise}`
+  }
+}
+
+const lionSound = soundMaker("roar");
+const mouseSound = soundMaker("squeak");
+
+function nameEnhancer(prefix) {
+  return function (suffix) {
+    return function (name) {
+      return `${prefix} ${name} ${suffix}`;
+    }
+  }
+}
+
+const misterJunior = nameEnhancer("Mister")("Junior");
+const duchessThird = nameEnhancer("Duchess")("The Third");
