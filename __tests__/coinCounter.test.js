@@ -1,4 +1,4 @@
-import { coinCounter } from "../src/coinCounter";
+import { coinCounter, coinClosure, quarters, dimes, nickels, pennies } from "../src/coinCounter";
 
 describe('coinCounter', () => {
   test('it should test if input is a number value', () => {
@@ -28,5 +28,19 @@ describe('coinCounter', () => {
   test('it should recognize 0.01 as 1 penny', () => {
     expect(coinCounter(0.01)).toEqual("1 pennies");
   });
+});
 
-})
+describe('coinClosure', () => {
+  test('should return quarters', () => {
+    expect(quarters(50)).toEqual("2 with 0 remaining");
+  });
+  test('should return dimes', () => {
+    expect(dimes(50)).toEqual("5 with 0 remaining");
+  });
+  test('should return 2 quarters', () => {
+    expect(nickels(16)).toEqual("3 with 1 remaining");
+  });
+  test('should return pennies', () => {
+    expect(pennies(5)).toEqual("5 with 0 remaining");
+  });
+});
